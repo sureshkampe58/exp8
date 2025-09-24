@@ -2,7 +2,7 @@ pipeline {
     agent any
     environment {
         DOCKERHUB_USER = "ksuresh58/exp8app"
-        DOCKER_IMAGE = "exp8-python-app"
+        DOCKER_IMAGE = "exp8app"
     }
     stages {
         stage('Build Docker Image') {
@@ -14,7 +14,7 @@ pipeline {
             steps {
                 withCredentials([usernamePassword(credentialsId: 'dockerhub-cred', usernameVariable: 'USER', passwordVariable: 'PASS')]) {
                     bat 'docker login -u %USER% -p %PASS%'
-                    bat 'docker push %DOCKERHUB_USER%/%DOCKER_IMAGE%:latest'
+                    bat 'docker push %DOCKERHUB_USER%/%DOCKER_IMAGE%:v2'
                 }
             }
         }
