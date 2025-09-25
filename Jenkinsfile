@@ -21,10 +21,16 @@ pipeline {
                 }
             }
         }
-        stage('Deploy to Kubernetes') {
-            steps {
-                bat 'kubectl apply -f myapp-deployment.yaml'
-            }
+    }
+stage('Deploy to Kubernetes') {
+    steps {
+        withCredentials([file(credentialsId: 'docker-desktop-kubeconfig', variable: 'KUBECONFIG_FILE')]) {
+            bat 'kubectl --kubeconfig=%KUBECONFIG_FILE% apply -f myapp-deployment.yaml'
         }
     }
+}
+
+        
+       
+  
 }
