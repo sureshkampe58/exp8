@@ -3,7 +3,7 @@ kind: Deployment
 metadata:
   name: app-deployment
 spec:
-  replicas: 3
+  replicas: 4
   selector:
     matchLabels:
       app: app
@@ -17,4 +17,5 @@ spec:
         image: ksuresh58/exp8app
         ports:
         - containerPort: 5055
+
 
