@@ -6,4 +6,5 @@ def home():
     return "Hello from Docker and Kubernetes!"
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0', port=5058)
+    app.run(host='0.0.0.0', port=5055)
+
