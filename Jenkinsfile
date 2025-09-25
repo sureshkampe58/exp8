@@ -27,7 +27,7 @@ stage('Deploy to Kubernetes') {
         withCredentials([file(credentialsId: 'docker-desktop-kubeconfig', variable: 'KUBECONFIG_FILE')]) {
             bat 'kubectl --kubeconfig=%KUBECONFIG_FILE% apply -f myapp-deployment.yaml'
             bat 'kubectl --kubeconfig=%KUBECONFIG_FILE% apply -f myapp-service.yaml'
-            bat 'kubectl rollout restart deployment app'
+            //bat 'kubectl rollout restart deployment app'
         }
     }
 }
