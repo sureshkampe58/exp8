@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-    }
+    
 stage('Deploy to Kubernetes') {
     steps {
         withCredentials([file(credentialsId: 'docker-desktop-kubeconfig', variable: 'KUBECONFIG_FILE')]) {
@@ -30,7 +30,7 @@ stage('Deploy to Kubernetes') {
     }
 }
 
-        
+}        
        
   
 }
