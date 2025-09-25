@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-        DOCKERHUB_USER = "ksuresh58/exp8app"
+        DOCKERHUB_USER = "ksuresh58"
         DOCKER_IMAGE = "exp8app"
     }
     stages {
