@@ -28,6 +28,8 @@ stage('Deploy to Kubernetes') {
             bat 'kubectl --kubeconfig=%KUBECONFIG_FILE% apply -f myapp-deployment.yaml'
             bat 'kubectl --kubeconfig=%KUBECONFIG_FILE% apply -f myapp-service.yaml'
             //bat 'kubectl rollout restart deployment app'
+           bat kubectl port-forward svc/app-service 9090:80
+
         }
     }
 }
