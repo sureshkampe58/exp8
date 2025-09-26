@@ -33,6 +33,11 @@ stage('Deploy to Kubernetes') {
         }
     }
 }
+stage('Show Service URL') {
+    steps {
+        bat 'kubectl get svc app-service -o jsonpath="{.spec.ports[0].nodePort}"'
+    }
+}
 
 }        
        
